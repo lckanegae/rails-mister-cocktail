@@ -1,15 +1,17 @@
 <div>
-  <h1>Cocktails</h1>
+  <div class="row justify-content-center">
+    <h1>Cocktails</h1>
+  </div>
+
+  <div class="row justify-content-center">
+    <%= link_to "Add new cocktail", new_cocktail_path, class: "btn btn-primary btn-sm m-2" %>
+  </div>
 </div>
 
-<div>
-  <%= link_to "Add new cocktail", new_cocktail_path, class: "btn btn-primary btn-sm m-2" %>
-</div>
-
-<div>
+<div class="m-5">
   <% @cocktails.each do |cocktail| %>
     <h2><%= cocktail.name %></h2>
-    <div>
+    <div class="row justify-content">
       <%= link_to "Show details", cocktail_path(cocktail), class: "btn btn-primary btn-sm m-2" %>
       <%= link_to "Add new review", new_cocktail_review_path(cocktail), class: "btn btn-primary btn-sm m-2" %>
       <%= link_to "Delete cocktail", cocktail_path(cocktail), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-sm m-2" %>

@@ -1,25 +1,36 @@
-<div>
+<div class="row justify-content-center">
   <h1><%= @cocktail.name %></h1>
 </div>
 
-<div>
-  <% @cocktail.doses.each do |dose| %>
-    <p><%= dose.ingredient.name %></p>
-    <p><%= dose.description %></p>
-  <% end %>
+<div class="m-5">
+  <div>
+    <h1>Recipe</h1>
+    <%= link_to "Add new dose", new_cocktail_dose_path(@cocktail), class: "btn btn-primary btn-sm" %>
+  </div>
 
-  <%= link_to "Add new dose", new_cocktail_dose_path(@cocktail), class: "btn btn-primary btn-sm m-2" %>
+  <div>
+    <% @cocktail.doses.each do |dose| %>
+      <p><%= dose.ingredient.name %></p>
+      <p><%= dose.description %></p>
+      <%= link_to "Delete dose", dose_path(dose), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary btn-sm" %>
+    <% end %>
+  </div>
 </div>
 
-<div>
-  <% @cocktail.reviews.each do |review| %>
-    <p><%= review.rating %></p>
-    <p><%= review.content %></p>
-  <% end %>
+<div class="m-5">
+  <div>
+    <h1>Reviews</h1>
+    <%= link_to "Add new review", new_cocktail_review_path(@cocktail), class: "btn btn-primary btn-sm" %>
+  </div>
 
-  <%= link_to "Add new review", new_cocktail_review_path(@cocktail), class: "btn btn-primary btn-sm m-2" %>
+  <div>
+    <% @cocktail.reviews.each do |review| %>
+      <p><%= review.rating %></p>
+      <p><%= review.content %></p>
+    <% end %>
+  </div>
 </div>
 
-<div>
-  <%= link_to "See all cocktails", :root, class: "btn btn-primary btn-sm m-2" %>
+<div class="row justify-content-center">
+  <%= link_to "Back to all cocktails", root_path, class: "btn btn-primary btn-sm m-5" %>
 </div>
