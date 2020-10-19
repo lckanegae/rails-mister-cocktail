@@ -8,10 +8,15 @@
   <p><%= dose.description %></p>
 <% end %>
 
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.association :ingredient %>
-  <%= f.input :description %>
-  <%= f.button :submit, "Add new dose", class: "btn btn-primary" %>
+<%= link_to "Add new dose", new_cocktail_dose_path(@cocktail), class: "btn btn-primary btn-sm" %>
+
+<% @cocktail.reviews.each do |review| %>
+  <p><%= review.rating %></p>
+  <p><%= review.content %></p>
 <% end %>
 
-<%= link_to "See all cocktails", :root %>
+<%= link_to "Add new review", new_cocktail_review_path(@cocktail), class: "btn btn-primary btn-sm" %>
+
+
+
+<%= link_to "See all cocktails", :root, class: "btn btn-primary btn-sm" %>
