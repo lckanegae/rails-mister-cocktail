@@ -8,5 +8,6 @@
       <h2><%= cocktail.name %></h2>
     </div>
     <%= link_to "Show details", cocktail_path(cocktail), class: 'card-link' %>
+    <%= link_to 'Delete cocktail', cocktail_path(cocktail), method: :delete, data: { confirm: 'Are you sure?' }, class: 'card-link' %>
   </div>
 <% end %>
